@@ -12,6 +12,11 @@ import PreviewBlocks from './components/PreviewBlocks';
 import Score from './components/Score';
 
 class App extends Component {
+  state = {
+    highScore: 0,
+    currentScore: 0
+  }
+
   render() {
     return (
       <Wrapper >
@@ -21,7 +26,10 @@ class App extends Component {
         <Leaderboard />
         <Info />
         <PreviewBlocks />
-        <Score />
+        <Score 
+          currentScore={this.state.currentScore}
+          highScore={this.state.highScore}
+          />
       </Wrapper>
     );
   }
