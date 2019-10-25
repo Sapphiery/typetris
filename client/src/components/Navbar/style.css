@@ -1,0 +1,52 @@
+.nav-pills {
+    position: fixed;
+    font-family: Baloo;
+    top: 0;
+    left: 0;
+    background: rgba(10, 0, 100, 0.562);
+    min-height: 65px;
+    width: 100%;
+    text-align: center;
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+    box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+    color: #fff;
+    font-size: calc(10px + 14 * (100vw - 320px)/ 800);
+    font-weight: bold;
+    z-index: 99;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.nav-pills a {
+    color: #fff;
+    transition: 0.4s;
+}
+
+.nav-pills a:hover {
+    text-shadow: 6px 6px 10px #000000, 0 0 7px rgb(255, 0, 149);
+}
+
+.nav-pills ul {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-pills li {
+    display: inline-block;
+    margin: auto;
+    width: 33.3%;
+    text-align: center;
+    text-shadow: 6px 6px 10px #000000;
+}
+
+.desc-normal {
+    color: #fff;
+}
+
+.desc-correct {
+    color: #0f0;
+}
+
+.desc-incorrect {
+    color: #f00;
+}
