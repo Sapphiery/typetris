@@ -1,0 +1,12 @@
+.LeaderboardFull {
+    border: 1px solid blue;
+    overflow: scroll;
+    width: 450px;
+    height: 750px;
+    display: none;
+}
+
+.leaderContainer {
+    position: absolute;
+    z-index: 2;
+}

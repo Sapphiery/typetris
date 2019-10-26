@@ -22,7 +22,7 @@ const Score = props => (
                 <li>Name 10</li>
             </ol>
         </div>
-        <button>Leaderboards</button>
+        <button id="leaderboards">Leaderboards</button>
     </div>
 )
 
