@@ -52,18 +52,25 @@ class App extends Component {
   }
 
   handleGameStart() {
+    function timer(interval) {
+      setTimeout(() => {
+        this.state.game.moveDown();
+        timer(this.state.gameSpeed);
+      }, interval);
+    }
+
     this.state.game.start();
-
-    let interval = setInterval(() => {
-      this.state.game.moveDown();
-    }, this.state.gameSpeed);
-
-    this.setState({gameInterval: interval});
+    timer(this.state.gameSpeed);
   }
 
-  handleGamePause() {
-    clearInterval(this.state.gameInterval);
-    this.state.game.pause();
+  handleGamePauseUnpause() {
+    const PAUSE = 2;
+    const ACTIVE = 1;
+    if (this.state.gameStatus === ACTIVE){
+      this.state.game.pause();
+    } else if (this.state.gameStatus === PAUSE) {
+      this.state.game.start();
+    }
   }
 
   render() {
