@@ -42,6 +42,10 @@ class App extends Component {
         gameStatus: gameState.gameStatus,
         gameSpeed: newScore > score ? this.state.gameSpeed - ((newScore - score) * 5) : this.state.gameSpeed
       };
+
+      if(this.state.nextShape !== gameState.nextShape) {
+        this.handleTypeTime();
+      }
       this.setState(newState);
     }
 
