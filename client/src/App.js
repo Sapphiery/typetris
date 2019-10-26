@@ -9,6 +9,7 @@ import GameContainer from './components/GameContainer';
 import PreviewBlocks from './components/PreviewBlocks';
 import Score from './components/Score';
 import {Engine} from 'tetris-engine';
+import randomWord from 'random-word';
 
 import "./assets/css/general.css";
 import "./assets/js/script.js";
@@ -21,8 +22,10 @@ class App extends Component {
     nextShape: {},
     gameStatus: 0,
     game: null,
-    gameInterval: null,
-    gameSpeed: 1000
+    gameSpeed: 1000,
+    typeTime: false,
+    currentWord: "",
+    correctLetters: 0
   }
 
   componentDidMount() {
@@ -73,8 +76,8 @@ class App extends Component {
     }
   }
 
-  handleBlockMovement(key, playable) {
-    if (playable) {
+  handleBlockMovement(key) {
+    if (!this.state.typeTime) {
       switch (key) {
         case "ArrowUp":
           this.state.game.rotate();
@@ -96,6 +99,43 @@ class App extends Component {
           break;
       }
     }
+  }
+
+  handleKeyPress(event) {
+    let key = event.code;
+
+    if (key === "ArrowUp" || key === "ArrowLeft" || key === "ArrowRight" || key === "ArrowDown") {
+      this.handleBlockMovement(key);
+    } else if (key === "Space") {
+      this.handleGamePauseUnpause();
+    } else {
+      handleTyping(key);
+    }
+  }
+
+  handleTyping(key) {
+    if (this.state.typeTime) {
+      let currentKey = key.startsWith("Key") ? key[3].toLowerCase() : "";
+      let currentLetter = this.state.currentWord[this.state.correctLetters].toLowerCase();
+
+      if (currentKey === currentLetter) {
+        let numCorrect = this.state.correctLetters + 1;
+
+        if (!this.state.currentWord[numCorrect]) {
+          this.setState({typeTime: false, currentWord: "", correctLetters: 0});
+        } else {
+          this.setState({correctLetters: numCorrect});
+        }
+      } else {
+        this.setState({typeTime: false, currentWord: "", correctLetters: 0, gameSpeed: this.state.gameSpeed - 50});
+      }
+    }
+  }
+
+  handleTypeTime() {
+    let word = randomWord();
+    
+    this.setState({typeTime: true, currentWord: word, correctLetters: 0});
   }
 
   render() {
