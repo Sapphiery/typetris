@@ -1,0 +1,16 @@
+.GameContainer {
+    border: 1px solid #ff0000;
+    position: relative;
+    display: grid;
+    margin: 0;
+    margin-top: 7%;
+    width: 641px;
+    height: 854px;
+    grid-auto-rows: 34px;
+    grid-auto-columns: 34px;
+    background: #d3d3d3;
+    background: radial-gradient(circle,#29386b00 0,#163e6b85 100%);
+    border-radius: 5%;
+    overflow: hidden;
+    z-index: 1;
+}

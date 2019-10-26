@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+// import { Link, Redirect } from "react-router-dom";
 import "./style.css";
 
 const Navbar = props => (
@@ -9,7 +9,7 @@ const Navbar = props => (
                 <h1>Typetris</h1>
             </li>
             <li>
-                <Link className="login" to="" role="button">Login</Link>
+                <button className="login" to="" role="button">Login</button>
             </li>
         </ul>
     </div>
