@@ -6,8 +6,6 @@ import Wrapper from './components/Wrapper';
 import Navbar from './components/Navbar';
 import Backdrop from './components/Backdrop';
 import GameContainer from './components/GameContainer';
-import Leaderboard from './components/Leaderboard';
-import Info from './components/Info';
 import PreviewBlocks from './components/PreviewBlocks';
 import Score from './components/Score';
 
@@ -26,10 +24,8 @@ class App extends Component {
           currentScore={this.state.currentScore}
           highScore={this.state.highScore}
           />
-        <Leaderboard />
         <GameContainer />
-        <PreviewBlocks />
-        <Info />      
+        <PreviewBlocks />     
       </Wrapper>
     );
   }

@@ -1,3 +1,7 @@
 .PreviewBlocks {
     border: 1px solid purple;
 }
+
+.Info {
+    border: 1px solid orange;
+}
