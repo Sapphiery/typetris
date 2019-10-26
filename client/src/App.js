@@ -73,6 +73,31 @@ class App extends Component {
     }
   }
 
+  handleBlockMovement(key, playable) {
+    if (playable) {
+      switch (key) {
+        case "ArrowUp":
+          this.state.game.rotate();
+          break;
+
+        case "ArrowLeft":
+          this.state.game.moveLeft();
+          break;
+
+        case "ArrowRight":
+          this.state.game.moveRight();
+          break;
+
+        case "ArrowDown":
+          this.state.game.moveDown();
+          break;
+      
+        default:
+          break;
+      }
+    }
+  }
+
   render() {
     return (
       <Wrapper >
