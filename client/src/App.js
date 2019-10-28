@@ -9,10 +9,12 @@ import GameContainer from './components/GameContainer';
 import PreviewBlocks from './components/PreviewBlocks';
 import Score from './components/Score';
 import {Engine} from 'tetris-engine';
-import randomWord from 'random-word';
+// import randomWord from 'random-word';
 
 import "./assets/css/general.css";
 import "./assets/js/script.js";
+
+const wordList = ['captain', 'never', 'zombie', 'fever', 'cat', 'possum']
 
 class App extends Component {
   state = {
@@ -113,7 +115,7 @@ class App extends Component {
     } else if (key === "Space") {
       this.handleGamePauseUnpause();
     } else {
-      handleTyping(key);
+      this.handleTyping(key);
     }
   }
 
@@ -137,9 +139,15 @@ class App extends Component {
   }
 
   handleTypeTime() {
-    let word = randomWord();
+    let word = this.randomWord();
     
     this.setState({typeTime: true, currentWord: word, correctLetters: 0});
+  }
+
+  randomWord() {
+    let index = Math.floor(Math.random() * wordList.length);
+
+    return wordList[index];
   }
 
   render() {
