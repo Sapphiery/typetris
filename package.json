@@ -23,6 +23,7 @@
     "if-env": "^1.0.4",
     "jquery": "^3.4.1",
     "random-word": "^2.0.0",
-    "tetris-engine": "^1.2.18"
+    "tetris-engine": "^1.2.18",
+    "vuera": "^0.2.6"
   }
 }
