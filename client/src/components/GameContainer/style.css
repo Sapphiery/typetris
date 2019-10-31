@@ -24,3 +24,75 @@
     padding: 0;
     border: 1px solid #6d6d6d3f;
 }
+
+.shape {
+    background-color: #0d102d6b;
+}
+
+.shape.LShape {
+    background-color: crimson;
+}
+
+.shape.JShape {
+    background-color: indianred;
+}
+
+.shape.TShape {
+    background-color: green;
+}
+
+.shape.OShape {
+    background-color: deepskyblue;
+}
+
+.shape.IShape {
+    background-color: mediumblue;
+}
+
+.shape.SShape {
+    background-color: saddlebrown;
+}
+
+.shape.ZShape {
+    background-color: teal;
+}
+
+.heap.LShape {
+    background-color: rgb(221, 55, 88);
+}
+
+.heap.JShape {
+    background-color: rgb(212, 135, 135);
+}
+
+.heap.TShape {
+    background-color: springgreen;
+}
+
+.heap.OShape {
+    background-color: skyblue;
+}
+
+.heap.IShape {
+    background-color: rgb(64, 64, 211);
+}
+
+.heap.SShape {
+    background-color: sandybrown;
+}
+
+.heap.ZShape {
+    background-color: steelblue;
+}
+
+.heap {
+    background-color: darkkhaki;
+}
+
+.leftEdge {
+    border-left: 1px solid red !important;
+}
+
+.rightEdge {
+    border-right: 1px solid red !important;
+}

@@ -17,8 +17,6 @@ import "./assets/js/script.js";
 import $ from "jquery";
 
 const Engine = tetris.Engine;
-console.log('Engine: ', Engine);
-
 const wordList = ['captain', 'never', 'zombie', 'fever', 'cat', 'possum']
 
 class App extends Component {
@@ -32,52 +30,47 @@ class App extends Component {
     gameSpeed: 1000,
     typeTime: false,
     currentWord: "",
-    correctLetters: 0
+    correctLetters: 0,
+    gameState: null
   }
   
   componentDidMount() {
     let areaHeight = 20;
     let areaWidth = 25;
 
-    let renderFunct = gameState => {
-      let score = this.state.currentScore;
-      let newScore = gameState.statistic.countLinesReduced;
-      let newState = {
-        currentScore: newScore,
-        gameArea: gameState.body,
-        nextShape: gameState.nextShape,
-        gameStatus: gameState.gameStatus,
-        gameSpeed: newScore > score ? this.state.gameSpeed - ((newScore - score) * 5) : this.state.gameSpeed
-      };
-
-      if(this.state.nextShape !== gameState.nextShape) {
-        this.handleTypeTime();
-      }
-      this.setState(newState);
-    }
-
     const game = new Engine(
       areaHeight,
       areaWidth,
-      renderFunct
+      this.renderFunct
     );
 
-    console.log('game is: ', game);
+    window.addEventListener('keydown', this.handleKeyPress);
 
     this.setState({game: game});
-    console.log('what the F: ', this.state);
+  }
 
-    setTimeout(() => {
-      this.handleGameStart();
-    }, 1000);
-    
+  renderFunct = gameState => {
+    let score = this.state.currentScore;
+    let newScore = gameState.statistic.countLinesReduced;
+    let newState = {
+      currentScore: newScore,
+      gameArea: gameState.body,
+      nextShape: gameState.nextShape,
+      gameState: gameState,
+      gameStatus: gameState.gameStatus,
+      gameSpeed: newScore > score ? this.state.gameSpeed - ((newScore - score) * 5) : this.state.gameSpeed
+    };
+
+    if(this.state.nextShape !== gameState.nextShape) {
+      this.handleTypeTime();
+    }
+    this.setState(newState);
   }
 
   handleGameStart = () => {
     this.state.game.start();
     setInterval(() => {
       this.state.game.moveDown();
-      // timer(this.state.gameSpeed);
     }, 1000);
   }
 
@@ -116,8 +109,10 @@ class App extends Component {
     }
   }
 
-  handleKeyPress(event) {
+  handleKeyPress = event => {
+    console.log('in keypress event');
     let key = event.code;
+    console.log('key is: ', key);
 
     if (key === "ArrowUp" || key === "ArrowLeft" || key === "ArrowRight" || key === "ArrowDown") {
       this.handleBlockMovement(key);
@@ -159,40 +154,19 @@ class App extends Component {
     return wordList[index];
   }
 
-  createTable() {
-      var rn=this.state.gameArea
-      for(var r=0;r<rn.length;r++) {
-        var row = $("<tr>")
-        var cn = rn[r]
-          for(var c=0;c<cn.length;c++) {
-            var cell = $("<td>")
-            var cssArry = cn[c].cssClasses
-            console.log(cssArry)
-            for(var i=0; i<cssArry.length;i++){
-              var css = cssArry[i]
-              console.log(css)
-              cell.addClass(css)
-            }
-              row.append(cell)
-          }
-        $(".game-table").append(row);
-      }
-    }
-
   render() {
     return (
       <Wrapper >
         <Navbar />
         <Backdrop />
+        <button onClick={this.handleGameStart}>Start Game</button>
         <Score 
           currentScore={this.state.currentScore}
           highScore={this.state.highScore}
           />
         <GameContainer 
-          gameArea = {this.state.gameArea}
-        >
-          {this.createTable()}
-        </GameContainer>
+          gameArea={this.state.gameArea} gameState={this.state.gameState}
+        />
         <PreviewBlocks />
         <Leaderboard />     
       </Wrapper>
