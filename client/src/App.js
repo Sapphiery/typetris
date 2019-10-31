@@ -64,13 +64,15 @@ class App extends Component {
 
     console.log('game is: ', game);
 
-    this.setState({game: game});
+    this.setState({ game: game }, () => {
+      console.log("State changed.")
+      console.log(this.state.game)
+    });
     console.log('what the F: ', this.state);
 
-    setTimeout(() => {
-      this.handleGameStart();
-    }, 1000);
-    
+    // setTimeout(() => {
+    //   this.handleGameStart();
+    // }, 1000);
   }
 
   handleGameStart = () => {
@@ -78,7 +80,7 @@ class App extends Component {
     setInterval(() => {
       this.state.game.moveDown();
       // timer(this.state.gameSpeed);
-    }, 1000);
+    }, 200);
   }
 
   handleGamePauseUnpause() {
@@ -159,41 +161,45 @@ class App extends Component {
     return wordList[index];
   }
 
-  createTable() {
-      var rn=this.state.gameArea
-      for(var r=0;r<rn.length;r++) {
-        var row = $("<tr>")
-        var cn = rn[r]
-          for(var c=0;c<cn.length;c++) {
-            var cell = $("<td>")
-            var cssArry = cn[c].cssClasses
-            console.log(cssArry)
-            for(var i=0; i<cssArry.length;i++){
-              var css = cssArry[i]
-              console.log(css)
-              cell.addClass(css)
-            }
-              row.append(cell)
-          }
-        $(".game-table").append(row);
-      }
-    }
+  // createTable() {
+  //     var rn=this.state.gameArea
+  //     for(var r=0;r<rn.length;r++) {
+  //       var row = $("<tr>")
+  //       var cn = rn[r]
+  //         for(var c=0;c<cn.length;c++) {
+  //           var cell = $("<td>")
+  //           var cssArry = cn[c].cssClasses
+  //           console.log(cssArry)
+  //           for(var i=0; i<cssArry.length;i++){
+  //             var css = cssArry[i]
+  //             console.log(css)
+  //             cell.addClass(css)
+  //           }
+  //             row.append(cell)
+  //         }
+  //       $(".game-table").append(row);
+  //     }
+  //   }
 
   render() {
     return (
       <Wrapper >
-        <Navbar />
+        <Navbar 
+          // start={this.handleGameStart}
+        />
         <Backdrop />
         <Score 
           currentScore={this.state.currentScore}
           highScore={this.state.highScore}
           />
         <GameContainer 
-          gameArea = {this.state.gameArea}
+          row = {this.state.gameArea}
+          start={this.handleGameStart}
         >
-          {this.createTable()}
         </GameContainer>
-        <PreviewBlocks />
+        <PreviewBlocks 
+          NextBlock = {this.state.nextShape}
+        />
         <Leaderboard />     
       </Wrapper>
     );

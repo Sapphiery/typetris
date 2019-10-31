@@ -9,7 +9,7 @@ const Navbar = props => (
                 <h1>Typetris</h1>
             </li>
             <li>
-                <button className="login" to="" role="button">Login</button>
+                <button className="login" to="">Login</button>
             </li>
         </ul>
     </div>

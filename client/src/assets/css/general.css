@@ -1,6 +1,101 @@
 button {
     outline: none;
     border: none;
+    border-radius: 6px;
     font-size: 22px;
     font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+}
+
+.start {
+    position: absolute;
+    right: 43%;
+    top: 50%;
+}
+
+.shape {
+    background-color: #0d102d6b;
+}
+
+.shape.LShape {
+    background-color: crimson;
+    box-shadow: 0 0 6px crimson;
+}
+
+.shape.JShape {
+    background-color: indianred;
+    box-shadow: 0 0 6px indianred;
+}
+
+.shape.TShape {
+    background-color: green;
+    box-shadow: 0 0 6px green;
+}
+
+.shape.OShape {
+    background-color: deepskyblue;
+    box-shadow: 0 0 6px deepskyblue;
+}
+
+.shape.IShape {
+    background-color: mediumblue;
+    box-shadow: 0 0 6px mediumblue;
+}
+
+.shape.SShape {
+    background-color: saddlebrown;
+    box-shadow: 0 0 6px saddlebrown;
+}
+
+.shape.ZShape {
+    background-color: teal;
+    box-shadow: 0 0 6px teal;
+}
+
+.heap.LShape {
+    background-color: rgb(221, 55, 88);
+    box-shadow: 0 0 6px rgb(221, 55, 88);
+}
+
+.heap.JShape {
+    background-color: rgb(212, 135, 135);
+    box-shadow: 0 0 6px rgb(212, 135, 135);
+}
+
+.heap.TShape {
+    background-color: springgreen;
+    box-shadow: 0 0 6px springgreen;
+}
+
+.heap.OShape {
+    background-color: skyblue;
+    box-shadow: 0 0 6px skyblue;
+}
+
+.heap.IShape {
+    background-color: rgb(64, 64, 211);
+    box-shadow: 0 0 6px rgb(64, 64, 211);
+}
+
+.heap.SShape {
+    background-color: sandybrown;
+    box-shadow: 0 0 6px sandybrown;
+}
+
+.heap.ZShape {
+    background-color: steelblue;
+    box-shadow: 0 0 6px steelblue;
+}
+
+
+.heap {
+    background-color: darkkhaki;
+    box-shadow: 0 0 6px darkkhaki;
+}
+
+.leftEdge {
+    border-left: 1px solid red !important;
+}
+
+.rightEdge {
+    border-right: 1px solid red !important;
 }
