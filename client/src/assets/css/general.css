@@ -80,6 +80,7 @@ button {
     background-color: skyblue;
     box-shadow: 0 0 6px skyblue;
     border: 1px solid rgba(18, 0, 153, 0.192);
+    filter: saturate(120%);
 }
 
 .heap.IShape {
@@ -112,4 +113,29 @@ button {
 
 .rightEdge {
     border-right: 1px solid red !important;
+}
+
+@keyframes border {
+    
+}
+
+@keyframes forimg {
+    0% {
+        filter: saturate(50%);
+    }
+    20% {
+        filter: saturate(70%);
+    }
+    40% {
+        filter: saturate(100%);
+    }
+    60% {
+        filter: saturate(150%);
+    }
+    80% {
+        filter: saturate(100%);
+    }
+    100% {
+        filter: saturate(70%);
+    }
 }
