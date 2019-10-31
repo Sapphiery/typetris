@@ -3,8 +3,11 @@ import "./style.css";
 
 const GameContainer = props => (
     <div className="GameContainer">
-        <table className="game-table" id="game-table">
+        <table className="game-table">
+            <tbody>
+            </tbody>
         </table>
+        {console.log(props.gameArea)}
     </div>
 );
 

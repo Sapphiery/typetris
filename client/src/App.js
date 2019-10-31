@@ -8,11 +8,16 @@ import Backdrop from './components/Backdrop';
 import GameContainer from './components/GameContainer';
 import PreviewBlocks from './components/PreviewBlocks';
 import Score from './components/Score';
-import {Engine} from 'tetris-engine';
+import tetris from 'tetris-engine';
+
 // import randomWord from 'random-word';
 
 import "./assets/css/general.css";
 import "./assets/js/script.js";
+import $ from "jquery";
+
+const Engine = tetris.Engine;
+console.log('Engine: ', Engine);
 
 const wordList = ['captain', 'never', 'zombie', 'fever', 'cat', 'possum']
 
@@ -29,10 +34,10 @@ class App extends Component {
     currentWord: "",
     correctLetters: 0
   }
-
+  
   componentDidMount() {
     let areaHeight = 20;
-    let areaWidth = 15;
+    let areaWidth = 25;
 
     let renderFunct = gameState => {
       let score = this.state.currentScore;
@@ -57,19 +62,23 @@ class App extends Component {
       renderFunct
     );
 
+    console.log('game is: ', game);
+
     this.setState({game: game});
+    console.log('what the F: ', this.state);
+
+    setTimeout(() => {
+      this.handleGameStart();
+    }, 1000);
+    
   }
 
-  handleGameStart() {
-    function timer(interval) {
-      setTimeout(() => {
-        this.state.game.moveDown();
-        timer(this.state.gameSpeed);
-      }, interval);
-    }
-
+  handleGameStart = () => {
     this.state.game.start();
-    timer(this.state.gameSpeed);
+    setInterval(() => {
+      this.state.game.moveDown();
+      // timer(this.state.gameSpeed);
+    }, 1000);
   }
 
   handleGamePauseUnpause() {
@@ -150,6 +159,26 @@ class App extends Component {
     return wordList[index];
   }
 
+  createTable() {
+      var rn=this.state.gameArea
+      for(var r=0;r<rn.length;r++) {
+        var row = $("<tr>")
+        var cn = rn[r]
+          for(var c=0;c<cn.length;c++) {
+            var cell = $("<td>")
+            var cssArry = cn[c].cssClasses
+            console.log(cssArry)
+            for(var i=0; i<cssArry.length;i++){
+              var css = cssArry[i]
+              console.log(css)
+              cell.addClass(css)
+            }
+              row.append(cell)
+          }
+        $(".game-table").append(row);
+      }
+    }
+
   render() {
     return (
       <Wrapper >
@@ -159,7 +188,11 @@ class App extends Component {
           currentScore={this.state.currentScore}
           highScore={this.state.highScore}
           />
-        <GameContainer />
+        <GameContainer 
+          gameArea = {this.state.gameArea}
+        >
+          {this.createTable()}
+        </GameContainer>
         <PreviewBlocks />
         <Leaderboard />     
       </Wrapper>
