@@ -12,6 +12,10 @@
     z-index: 1;
 }
 
+table {
+    border-collapse: inherit;
+}
+
 .game-table {
     /* background-color:  honeydew;  */
     border-spacing: 1px;
