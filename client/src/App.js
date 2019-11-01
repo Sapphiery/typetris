@@ -181,8 +181,7 @@ class App extends Component {
         </GameContainer>
         <PreviewBlocks 
           NextBlock = {this.state.nextShape}
-        />
-        <Leaderboard />    
+        />  
       </Wrapper>
     );
   }

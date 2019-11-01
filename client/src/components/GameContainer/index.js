@@ -1,4 +1,5 @@
 import React from "react";
+import Leaderboard from "../Leaderboard";
 import "./style.css";
 
 function GameContainer (props) { 
@@ -24,6 +25,7 @@ function GameContainer (props) {
                 ))}
             </tbody>
         </table>
+        <Leaderboard />
     </div>
     );
 };
