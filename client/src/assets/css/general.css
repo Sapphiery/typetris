@@ -1,9 +1,30 @@
+body {
+    background: url("https://www.wallpaperup.com/uploads/wallpapers/2012/04/02/1939/efa4a21f5ea5834cbbb1b30bc94eb17c.jpg");
+    background-attachment: fixed;
+    background-size: 110%;
+}
+
 button {
     outline: none;
     border: none;
     border-radius: 6px;
     font-size: 22px;
     font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+}
+
+button:focus {
+    outline: none;
+}
+
+.Score, .Leaderboard, .PreviewBlocks, .Info, .leaderContainer {
+    margin: 10px;
+    padding: 10px;
+    color: #ffffff;
+    background: radial-gradient(circle,#29386b00 0,#3b364b 100%);
+    border-radius: 10px;
+    -moz-box-shadow:    inset 0 0 10px #a3a3a342, 5px 8px 6px -6px black;
+    -webkit-box-shadow: inset 0 0 10px #a3a3a342, 5px 8px 6px -6px black;
+    box-shadow:         inset 0 0 10px #a3a3a342, 5px 8px 6px -6px black;
 }
 
 .start {
@@ -115,8 +136,30 @@ button {
     border-right: 1px solid red !important;
 }
 
+.start {
+    animation: pulse 0.5s infinite;
+    background-color: rgba(102, 255, 0, 0.562);
+    padding: 10px;
+}
+
+.start, .login, #leaderboards {
+    color: #00000069;
+}
+
+
+
 @keyframes border {
     
+}
+
+@keyframes pulse
+{
+  0% {
+    box-shadow: 0 0 0 0px rgba(102, 255, 0, 0.562);
+  }
+  100% {
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0);
+  }
 }
 
 @keyframes forimg {
@@ -138,4 +181,22 @@ button {
     100% {
         filter: saturate(70%);
     }
+}
+
+
+/* rgb gradient */
+
+@keyframes slide {
+    0% {
+      background-position-x: 0%;
+    }
+    100% {
+      background-position-x: 600vw;
+    }
+  }
+
+.rgbGradient {
+    background: repeating-linear-gradient(-45deg,red 0%, yellow 7.14%, rgb(0,255,0) 14.28%, rgb(0,255,255) 21.42%, cyan 28.56%, blue 35.7%, magenta 42.84%, red 50%);
+	background-size:600vw 600vw;
+	/* -webkit-animation:'slide' 10s infinite linear forwards; */
 }

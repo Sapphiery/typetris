@@ -80,7 +80,7 @@ class App extends Component {
     setInterval(() => {
       this.state.game.moveDown();
       // timer(this.state.gameSpeed);
-    }, 200);
+    }, 500);
   }
 
   handleGamePauseUnpause() {
@@ -161,26 +161,6 @@ class App extends Component {
     return wordList[index];
   }
 
-  // createTable() {
-  //     var rn=this.state.gameArea
-  //     for(var r=0;r<rn.length;r++) {
-  //       var row = $("<tr>")
-  //       var cn = rn[r]
-  //         for(var c=0;c<cn.length;c++) {
-  //           var cell = $("<td>")
-  //           var cssArry = cn[c].cssClasses
-  //           console.log(cssArry)
-  //           for(var i=0; i<cssArry.length;i++){
-  //             var css = cssArry[i]
-  //             console.log(css)
-  //             cell.addClass(css)
-  //           }
-  //             row.append(cell)
-  //         }
-  //       $(".game-table").append(row);
-  //     }
-  //   }
-
   render() {
     return (
       <Wrapper >
@@ -194,13 +174,15 @@ class App extends Component {
           />
         <GameContainer 
           row = {this.state.gameArea}
-          start={this.handleGameStart}
+          start = {this.handleGameStart}
+          currentword = {this.state.currentWord}
+          correctletters = {this.state.correctLetters}
         >
         </GameContainer>
         <PreviewBlocks 
           NextBlock = {this.state.nextShape}
         />
-        <Leaderboard />     
+        <Leaderboard />    
       </Wrapper>
     );
   }
