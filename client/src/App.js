@@ -53,6 +53,10 @@ class App extends Component {
       if(this.state.nextShape !== gameState.nextShape) {
         this.handleTypeTime();
       }
+      if (gameState.gameStatus == 3) {
+        alert('game over');
+        $(".restart").css("display", "block");
+      }
       this.setState(newState);
     }
 
@@ -68,11 +72,7 @@ class App extends Component {
       console.log("State changed.")
       console.log(this.state.game)
     });
-    console.log('what the F: ', this.state);
-
-    // setTimeout(() => {
-    //   this.handleGameStart();
-    // }, 1000);
+    console.log('State: ', this.state);
   }
 
   handleGameStart = () => {
@@ -80,7 +80,7 @@ class App extends Component {
     setInterval(() => {
       this.state.game.moveDown();
       // timer(this.state.gameSpeed);
-    }, 500);
+    }, 50);
   }
 
   handleGamePauseUnpause() {
@@ -165,7 +165,6 @@ class App extends Component {
     return (
       <Wrapper >
         <Navbar 
-          // start={this.handleGameStart}
         />
         <Backdrop />
         <Score 
@@ -175,6 +174,7 @@ class App extends Component {
         <GameContainer 
           row = {this.state.gameArea}
           start = {this.handleGameStart}
+          restart = {this.restart}
           currentword = {this.state.currentWord}
           correctletters = {this.state.correctLetters}
         >
