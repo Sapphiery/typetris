@@ -1,7 +1,19 @@
 .PreviewBlocks {
-    border: 1px solid purple;
+    border: 1px solid rgb(255, 187, 0);
+    
 }
 
 .Info {
-    border: 1px solid orange;
+    border: 1px solid rgb(255, 187, 0);
+}
+
+.PreviewBlocks, .Info {
+    margin: 10px;
+    padding: 10px;
+    color: #ffffff;
+    background: radial-gradient(circle,#29386b00 0,#3b364b 100%);
+    border-radius: 10px;
+    -moz-box-shadow:    inset 0 0 10px rgb(255, 187, 0), 0 0 10px rgb(255, 187, 0), 5px 8px 6px -6px black;
+    -webkit-box-shadow: inset 0 0 10px rgb(255, 187, 0), 0 0 10px rgb(255, 187, 0), 5px 8px 6px -6px black;
+    box-shadow:         inset 0 0 10px rgb(255, 187, 0), 0 0 10px rgb(255, 187, 0), 5px 8px 6px -6px black;
 }

@@ -50,7 +50,7 @@
     padding: 6px 15px;
     border-radius: 6px;
     /* background-color: #6d4100; */
-    background-image: linear-gradient(to right, #e153ce, #852D91, rgb(211, 68, 255), rgb(230, 51, 51));
+    background-image: linear-gradient(to right, #bd5454, #852D91, rgb(211, 68, 255), rgb(230, 51, 51));
     box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
     font-size: 20px;
     transition: 0.5s;
@@ -66,7 +66,6 @@
 }
 
 .login:hover {
-    color: #fff;
     background-position: 100% 0;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
