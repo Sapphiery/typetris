@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 const Backdrop = props => (
-    <div class="backDrop">
+    <div className="backDrop">
     </div>
 )
 

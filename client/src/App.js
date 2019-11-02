@@ -8,11 +8,16 @@ import Backdrop from './components/Backdrop';
 import GameContainer from './components/GameContainer';
 import PreviewBlocks from './components/PreviewBlocks';
 import Score from './components/Score';
-import {Engine} from 'tetris-engine';
+import tetris from 'tetris-engine';
+
 // import randomWord from 'random-word';
 
 import "./assets/css/general.css";
 import "./assets/js/script.js";
+import $ from "jquery";
+
+const Engine = tetris.Engine;
+console.log('Engine: ', Engine);
 
 const wordList = ['captain', 'never', 'zombie', 'fever', 'cat', 'possum']
 
@@ -29,10 +34,10 @@ class App extends Component {
     currentWord: "",
     correctLetters: 0
   }
-
+  
   componentDidMount() {
     let areaHeight = 20;
-    let areaWidth = 15;
+    let areaWidth = 25;
 
     let renderFunct = gameState => {
       let score = this.state.currentScore;
@@ -48,6 +53,10 @@ class App extends Component {
       if(this.state.nextShape !== gameState.nextShape) {
         this.handleTypeTime();
       }
+      if (gameState.gameStatus == 3) {
+        alert('game over');
+        $(".restart").css("display", "block");
+      }
       this.setState(newState);
     }
 
@@ -57,19 +66,21 @@ class App extends Component {
       renderFunct
     );
 
-    this.setState({game: game});
+    console.log('game is: ', game);
+
+    this.setState({ game: game }, () => {
+      console.log("State changed.")
+      console.log(this.state.game)
+    });
+    console.log('State: ', this.state);
   }
 
-  handleGameStart() {
-    function timer(interval) {
-      setTimeout(() => {
-        this.state.game.moveDown();
-        timer(this.state.gameSpeed);
-      }, interval);
-    }
-
+  handleGameStart = () => {
     this.state.game.start();
-    timer(this.state.gameSpeed);
+    setInterval(() => {
+      this.state.game.moveDown();
+      // timer(this.state.gameSpeed);
+    }, 50);
   }
 
   handleGamePauseUnpause() {
@@ -153,15 +164,24 @@ class App extends Component {
   render() {
     return (
       <Wrapper >
-        <Navbar />
+        <Navbar 
+        />
         <Backdrop />
         <Score 
           currentScore={this.state.currentScore}
           highScore={this.state.highScore}
           />
-        <GameContainer />
-        <PreviewBlocks />
-        <Leaderboard />     
+        <GameContainer 
+          row = {this.state.gameArea}
+          start = {this.handleGameStart}
+          restart = {this.restart}
+          currentword = {this.state.currentWord}
+          correctletters = {this.state.correctLetters}
+        >
+        </GameContainer>
+        <PreviewBlocks 
+          NextBlock = {this.state.nextShape}
+        />  
       </Wrapper>
     );
   }

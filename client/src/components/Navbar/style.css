@@ -4,7 +4,6 @@
     top: 0;
     left: 0;
     background: rgba(10, 0, 100, 0.562);
-    min-height: 65px;
     width: 100%;
     text-align: center;
     -webkit-box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
@@ -17,12 +16,18 @@
     transition: 0.2s;
 }
 
+.nav-pills h1 {
+    text-shadow: 6px 6px 10px #000000;
+}
+
 .nav-pills a {
+    font-size: 22px;
     color: #fff;
-    transition: 0.4s;
+    transition: 0.2s;
 }
 
 .nav-pills a:hover {
+    color: #fff;
     text-shadow: 6px 6px 10px #000000, 0 0 7px rgb(255, 0, 149);
 }
 
@@ -39,14 +44,45 @@
     text-shadow: 6px 6px 10px #000000;
 }
 
-.desc-normal {
+.login {
+    
     color: #fff;
+    padding: 6px 15px;
+    border-radius: 6px;
+    /* background-color: #6d4100; */
+    background-image: linear-gradient(to right, #bd5454, #852D91, rgb(211, 68, 255), rgb(230, 51, 51));
+    box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+    font-size: 20px;
+    transition: 0.5s;
+    position: relative;
+    border: 0.5px solid grey;
+    cursor: pointer;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
-.desc-correct {
-    color: #0f0;
+.login:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
-.desc-incorrect {
-    color: #f00;
+@keyframes slide {
+    0% {
+      background-position-x: 0%;
+    }
+    100% {
+      background-position-x: 600vw;
+    }
+  }
+
+.rgbGradient {
+    background: repeating-linear-gradient(-45deg,red 0%, yellow 7.14%, rgb(0,255,0) 14.28%, rgb(0,255,255) 21.42%, cyan 28.56%, blue 35.7%, magenta 42.84%, red 50%);
+	background-size:600vw 600vw;
+	-webkit-animation: slide 10s infinite linear forwards;
 }
