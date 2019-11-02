@@ -16,7 +16,7 @@ button:focus {
     outline: none;
 }
 
-.start {
+.start, .restart {
     position: absolute;
     right: 43%;
     top: 50%;
@@ -132,6 +132,16 @@ button:focus {
     padding: 10px;
 }
 
+.restart {
+    animation: pulse2 0.5s infinite;
+    background-color: rgba(255, 0, 55, 0.562);
+    padding: 10px;
+}
+
+.restart {
+    color: #ffffff69;
+}
+
 .start {
     color: #00000069;
 }
@@ -146,6 +156,16 @@ button:focus {
 {
   0% {
     box-shadow: 0 0 0 0px rgba(102, 255, 0, 0.562);
+  }
+  100% {
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes pulse2
+{
+  0% {
+    box-shadow: 0 0 0 0px rgba(255, 0, 55, 0.562);
   }
   100% {
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0);
