@@ -44,7 +44,7 @@
 .leaderContainer {
     color: #fff;
     position: absolute;
-    z-index: 2;
+    z-index: 16;
     top: 5%;
     left: 7%;
     display: none;
