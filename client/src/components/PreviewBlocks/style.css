@@ -1,6 +1,7 @@
 .PreviewBlocks {
     border: 1px solid rgb(255, 187, 0);
-    
+    min-width: 191px;
+    min-height: 50px;
 }
 
 .Info {

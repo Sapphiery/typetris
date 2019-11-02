@@ -9,7 +9,11 @@ function PreviewBlocks (props) {
     <div className="right">
         <div className="PreviewBlocks">
             <h3 className="PBtitle">Next Block:</h3>
-            <p className="nextBlock" >{next.name}</p>
+            {next ? (
+                <p className="nextBlock">{next.name}</p>
+            ) : (
+                <p className="nextBlock">HELLO</p>
+            )}
             {console.log("next: ", next)}
         </div>
         <div className="Info">
