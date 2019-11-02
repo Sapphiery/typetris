@@ -9,6 +9,10 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico?v=2">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="937809397647-hn22rl886u25j6vf8honkprpeqchr9dm.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="../src/assets/js/google.js"> </script>
     <title>Typetris</title>
   </head>
   <body>
@@ -16,5 +20,8 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+    <!-- i dont know if i should throw this here but this is the login/out buttons for google authenticator -->
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+		<a href="#" onclick="signOut();">Sign out</a>
   </body>
 </html>
