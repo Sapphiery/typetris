@@ -8,12 +8,13 @@ $(document).on("click", ".start", function() {
     $(".start").css("display", "none");
 })
 
-var $target = $('.currentWord'),
-    t = ''
+var $target = $('.currentWord')
+
 $(document).on("keyup", "body", function(e) {
-    console.log("Keypressed")
-if (e.which !== 0) {
+    var t = e.key;
+    console.log("K :", t)
     t += String.fromCharCode(e.which);
+    t.toLowerCase();
     var text = $target.text(),
         pos = text.search(t);
     if(pos > -1){
@@ -21,6 +22,6 @@ if (e.which !== 0) {
     }else{
         $target.text(text);
     }
-}
 console.log("KEY: ", t);
 });
+
