@@ -20,7 +20,7 @@ button:focus {
     position: absolute;
     right: 43%;
     top: 50%;
-    z-index: 20;
+    z-index: 15;
 }
 
 .shape {
