@@ -19,7 +19,7 @@ import $ from "jquery";
 const Engine = tetris.Engine;
 console.log('Engine: ', Engine);
 
-const wordList = ['captain', 'never', 'zombie', 'fever', 'cat', 'possum']
+// const wordList = ['captain', 'never', 'zombie', 'fever', 'cat', 'possum']
 
 class App extends Component {
   state = {
@@ -165,16 +165,18 @@ class App extends Component {
   }
 
   handleTypeTime() {
-    let word = this.randomWord();
-    
-    this.setState({typeTime: true, currentWord: word, correctLetters: 0});
+    $.get('/api/randomword', data => {
+      let word = data.word;
+
+      this.setState({typeTime: true, currentWord: word, correctLetters: 0});
+    });
   }
 
-  randomWord() {
-    let index = Math.floor(Math.random() * wordList.length);
+  // randomWord() {
+  //   let index = Math.floor(Math.random() * wordList.length);
 
-    return wordList[index];
-  }
+  //   return wordList[index];
+  // }
 
   render() {
     return (
