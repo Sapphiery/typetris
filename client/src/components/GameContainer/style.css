@@ -1,18 +1,15 @@
 .GameContainer {
     position: relative;
-    border: 1px solid #77777763;
-    /* display: grid; */
     margin: 0;
-    /* width: 641px;
-    height: 854px; */
-    background: #d3d3d3;
-    background: radial-gradient(circle,#29386b00 0,#3b364b 100%);
     border-radius: 10px;
-    /* overflow: hidden; */
+    border: double 4px transparent;
+    background-image: radial-gradient(circle,#29386b00 0,#0d072e 100%), radial-gradient(circle at top left, rgb(255, 0, 157) 0, rgba(0, 0, 0, 0), rgb(255, 187, 0) 100%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
     z-index: 1;
-    -moz-box-shadow:    inset 0 0 10px #a3a3a342, 0 0 10px #a3a3a342, 5px 8px 6px -6px black;
-    -webkit-box-shadow: inset 0 0 10px #a3a3a342, 0 0 10px #a3a3a342, 5px 8px 6px -6px black;
-    box-shadow:         inset 0 0 10px #a3a3a342, 0 0 10px #a3a3a342, 5px 8px 6px -6px black;
+    -moz-box-shadow:    inset 0 0 10px #000000, 0 0 10px #000000, 5px 8px 6px -6px black;
+    -webkit-box-shadow: inset 0 0 10px #000000, 0 0 10px #000000, 5px 8px 6px -6px black;
+    box-shadow:         inset 0 0 10px #000000, 0 0 10px #000000, 5px 8px 6px -6px black;
 }
 
 .wordContainer {
