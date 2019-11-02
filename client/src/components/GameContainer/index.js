@@ -11,7 +11,7 @@ function GameContainer (props) {
         <button className="start" onClick={props.start}>START</button>
         <button className="start restart" style={{display:"none"}} onClick={props.restart}>PLAY AGAIN</button>
         <div className="wordContainer">
-            <h1 className="currentWord">{props.currentword}</h1>
+            <h1 className="currentWord" id="currentWord">{props.currentword}</h1>
             {console.log("Correct Letters: ", props.correctletters)}
         </div>
         <table className="game-table">
