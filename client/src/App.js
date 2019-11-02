@@ -32,7 +32,8 @@ class App extends Component {
     gameSpeed: 1000,
     typeTime: false,
     currentWord: "",
-    correctLetters: 0
+    correctLetters: 0,
+    currentShapeName: ""
   }
   
   componentDidMount() {
@@ -47,11 +48,13 @@ class App extends Component {
         gameArea: gameState.body,
         nextShape: gameState.nextShape,
         gameStatus: gameState.gameStatus,
-        gameSpeed: newScore > score ? this.state.gameSpeed - ((newScore - score) * 5) : this.state.gameSpeed
+        gameSpeed: newScore > score ? this.state.gameSpeed - ((newScore - score) * 10) : this.state.gameSpeed,
+        currentShapeName: gameState.shapeName
       };
 
-      if(this.state.nextShape !== gameState.nextShape) {
+      if(this.state.currentShapeName !== gameState.shapeName) {
         this.handleTypeTime();
+        newState.gameSpeed--;
       }
       if (gameState.gameStatus == 3) {
         alert('game over');
@@ -66,21 +69,31 @@ class App extends Component {
       renderFunct
     );
 
-    console.log('game is: ', game);
+    // console.log('game is: ', game);
 
     this.setState({ game: game }, () => {
-      console.log("State changed.")
-      console.log(this.state.game)
+      // console.log("State changed.")
+      // console.log(this.state.game)
     });
-    console.log('State: ', this.state);
+    // console.log('State: ', this.state);
+
+    document.addEventListener("keydown", this.handleKeyPress);
   }
 
   handleGameStart = () => {
     this.state.game.start();
-    setInterval(() => {
+    // setInterval(() => {
+    //   this.state.game.moveDown();
+    //   // timer(this.state.gameSpeed);
+    // }, 1000);
+
+    let tick = () => {
       this.state.game.moveDown();
-      // timer(this.state.gameSpeed);
-    }, 50);
+      console.log("tick " + this.state.gameSpeed);
+      setTimeout(tick, this.state.gameSpeed > 0 ? this.state.gameSpeed : 1);
+    };
+
+    setTimeout(tick, this.state.gameSpeed);
   }
 
   handleGamePauseUnpause() {
@@ -93,7 +106,7 @@ class App extends Component {
     }
   }
 
-  handleBlockMovement(key) {
+  handleBlockMovement = (key) => {
     if (!this.state.typeTime) {
       switch (key) {
         case "ArrowUp":
@@ -118,8 +131,10 @@ class App extends Component {
     }
   }
 
-  handleKeyPress(event) {
+  handleKeyPress = (event) => {
     let key = event.code;
+    // console.log(key);
+    event.preventDefault();
 
     if (key === "ArrowUp" || key === "ArrowLeft" || key === "ArrowRight" || key === "ArrowDown") {
       this.handleBlockMovement(key);
@@ -130,7 +145,7 @@ class App extends Component {
     }
   }
 
-  handleTyping(key) {
+  handleTyping = (key) => {
     if (this.state.typeTime) {
       let currentKey = key.startsWith("Key") ? key[3].toLowerCase() : "";
       let currentLetter = this.state.currentWord[this.state.correctLetters].toLowerCase();
@@ -144,7 +159,7 @@ class App extends Component {
           this.setState({correctLetters: numCorrect});
         }
       } else {
-        this.setState({typeTime: false, currentWord: "", correctLetters: 0, gameSpeed: this.state.gameSpeed - 50});
+        this.setState({typeTime: false, currentWord: "", correctLetters: 0, gameSpeed: this.state.gameSpeed - 100});
       }
     }
   }
