@@ -96,8 +96,8 @@ class App extends Component {
 
     let tick = () => {
       this.state.game.moveDown();
-      console.log("tick " + this.state.gameSpeed);
-      setTimeout(tick, this.state.gameSpeed > 0 ? this.state.gameSpeed : 1);
+      // console.log("tick " + this.state.gameSpeed);
+      if (this.state.gameStatus !== 3) setTimeout(tick, this.state.gameSpeed > 0 ? this.state.gameSpeed : 1);
     };
 
     setTimeout(tick, this.state.gameSpeed);
@@ -179,6 +179,11 @@ class App extends Component {
     });
   }
 
+  handleRestart = () => {
+    this.setState({game: this.makeNewGame(), currentScore: 0, gameSpeed: 1000, gameStatus: 0});
+    $(".start").css("display", "block");
+  };
+
   // randomWord() {
   //   let index = Math.floor(Math.random() * wordList.length);
 
@@ -198,7 +203,7 @@ class App extends Component {
         <GameContainer 
           row = {this.state.gameArea}
           start = {this.handleGameStart}
-          restart = {this.restart}
+          restart = {this.handleRestart}
           currentword = {this.state.currentWord}
           correctletters = {this.state.correctLetters}
         >
