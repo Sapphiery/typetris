@@ -116,6 +116,7 @@ button:focus {
 .heap {
     background-color: darkkhaki;
     box-shadow: 0 0 6px darkkhaki;
+    animation: 
 }
 
 .leftEdge {
@@ -146,12 +147,6 @@ button:focus {
     color: #00000069;
 }
 
-
-
-@keyframes border {
-    
-}
-
 @keyframes pulse
 {
   0% {
@@ -169,6 +164,16 @@ button:focus {
   }
   100% {
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes pulse3
+{
+  0% {
+    box-shadow: 0 0 0 0px darkkhaki;
+  }
+  100% {
+    box-shadow: 0 0 10px 10px darkkhaki;
   }
 }
 

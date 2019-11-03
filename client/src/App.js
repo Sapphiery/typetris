@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Leaderboard from './components/Leaderboard';
 import Wrapper from './components/Wrapper';
 import Navbar from './components/Navbar';
 import Backdrop from './components/Backdrop';
