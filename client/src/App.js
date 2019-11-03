@@ -162,11 +162,13 @@ class App extends Component {
 
         if (!this.state.currentWord[numCorrect]) {
           this.setState({typeTime: false, currentWord: "", correctLetters: 0});
+          console.log("CORRECT!")
         } else {
           this.setState({correctLetters: numCorrect});
         }
       } else {
         this.setState({typeTime: false, currentWord: "", correctLetters: 0, gameSpeed: this.state.gameSpeed - 100});
+        console.log("INCORRECT!")
       }
     }
   }
