@@ -18,8 +18,6 @@ app.get("/api/randomword", (req,res) => {
   res.json({word: RandomWord()});
 });
 
-
-
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
