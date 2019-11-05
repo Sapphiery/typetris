@@ -1,5 +1,6 @@
 .GameContainer {
     position: relative;
+    min-width: 552.8px;
     margin: 0;
     border-radius: 10px;
     border: double 4px transparent;
