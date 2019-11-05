@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import Leaderboard from './components/Leaderboard';
 import Wrapper from './components/Wrapper';
 import Navbar from './components/Navbar';
 import Backdrop from './components/Backdrop';
@@ -7,7 +8,7 @@ import GameContainer from './components/GameContainer';
 import PreviewBlocks from './components/PreviewBlocks';
 import Score from './components/Score';
 import tetris from 'tetris-engine';
-
+import GoogleLogin from 'react-google-login';
 // import randomWord from 'random-word';
 
 import "./assets/css/general.css";
@@ -18,6 +19,7 @@ const Engine = tetris.Engine;
 console.log('Engine: ', Engine);
 
 // const wordList = ['captain', 'never', 'zombie', 'fever', 'cat', 'possum']
+
 
 class App extends Component {
   state = {
@@ -52,7 +54,7 @@ class App extends Component {
         currentShapeName: gameState.shapeName
       };
   
-      if(this.state.currentShapeName !== gameState.shapeName && gameState.gameStatus === 1) {
+      if(this.state.currentShapeName !== gameState.shapeName) {
         this.handleTypeTime();
         newState.gameSpeed--;
       }
@@ -159,15 +161,17 @@ class App extends Component {
 
         if (!this.state.currentWord[numCorrect]) {
           this.setState({typeTime: false, currentWord: "", correctLetters: 0});
-          console.log("CORRECT!")
         } else {
           this.setState({correctLetters: numCorrect});
         }
       } else {
         this.setState({typeTime: false, currentWord: "", correctLetters: 0, gameSpeed: this.state.gameSpeed - 100});
+<<<<<<< HEAD
+=======
         console.log("INCORRECT!")
         $(".backDrop").addClass("incorrect");
         setTimeout(function(){ $(".backDrop").removeClass("incorrect"); }, 300);
+>>>>>>> ad4dd4351977a828a0715c002906b02668c984e2
       }
     }
   }
