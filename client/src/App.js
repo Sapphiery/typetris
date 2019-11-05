@@ -168,7 +168,9 @@ class App extends Component {
         this.setState({typeTime: false, currentWord: "", correctLetters: 0, gameSpeed: this.state.gameSpeed - 100});
         console.log("INCORRECT!")
         $(".backDrop").addClass("incorrect");
-        setTimeout(function(){ $(".backDrop").removeClass("incorrect"); }, 300);
+        setTimeout(function() { 
+          $(".backDrop").removeClass("incorrect"); 
+        }, 300);
       }
     }
   }
