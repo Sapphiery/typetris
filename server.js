@@ -19,12 +19,7 @@ app.get("/api/randomword", (req,res) => {
 });
 
 
-connection.query('INSERT INTO users (name, googleid, highscore) VALUES (?,?,?)', [req.body.name, userid, '1'], function (result) {
-        console.log('Successfully saved id and name to db.', result);
-         res.json({"sucess": true})
-  //       });
-  //     }
-  //     verify().catch(console.error);
+
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {

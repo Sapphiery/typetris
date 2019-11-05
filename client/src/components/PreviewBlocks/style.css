@@ -36,3 +36,7 @@
     padding: 0;
     border: 1px solid #6d6d6d00;
 }
+
+.infoText {
+    text-align: left;
+}

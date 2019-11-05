@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from 'react-dom';
-import logo from "./logo.svg";
 import "./App.css";
 import Leaderboard from './components/Leaderboard';
 import Wrapper from './components/Wrapper';
