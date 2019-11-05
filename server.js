@@ -3,6 +3,7 @@ const path = require("path");
 const RandomWord = require('random-word');
 const PORT = process.env.PORT || 3001;
 const app = express();
+var connection = require("./connection");
 
 
 // Define middleware here
@@ -18,6 +19,28 @@ app.get("/api/randomword", (req,res) => {
   res.json({word: RandomWord()});
 });
 
+app.post("/signin", (req, res) => {
+  // add logic to store user details in DB.
+  // req.body.googleId, req.body.highScore, etc...
+  connection.query(`SELECT * FROM users WHERE googleid=${req.body.googleId}`, function (result) {
+    if (!result) {
+      connection.query('INSERT INTO users (name, googleid, highscore) VALUES (?,?,?)', [req.body.name, req.body.googleId, req.body.highScore], function (newUser) {
+        console.log('Successfully saved id and name to db.', newUser);
+        res.json({success: true, msg: 'User details saved to DB'}, newUser);
+      });
+    } else {
+      res.json({success: true, msg: 'User already exists'}, result);
+    }
+  });
+  
+});
+
+app.post("/updatehighscore/:id", (req, res) => {
+  connection.query('INSERT INTO users (name, googleid, highscore) VALUES (?,?,?)', [req.body.name, req.body.googleId, req.body.highScore], function (result) {
+    console.log('Successfully saved id and name to db.', result);
+    res.json({success: true, msg: 'User details saved to DB'});
+  });
+});
 
 
 // Send every other request to the React app

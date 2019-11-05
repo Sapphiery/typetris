@@ -43,11 +43,15 @@ import GoogleLogin from 'react-google-login';
 // import { GoogleLogout } from 'react-google-login';
 
 
-const responseGoogle = (response) => {
-  console.log(response);
-}
 
-const Google = () => {
+
+const Google = (props) => {
+  const responseGoogle = (response) => {
+    console.log(response.profileObj.givenName);
+    console.log(response.googleId);
+    props.doLogin(response.profileObj.givenName, response.googleId);
+  }
+
   return (
     <GoogleLogin
       clientId="937809397647-pigoe4b4pg4e2bv84mnrvf8u0agh5hqd.apps.googleusercontent.com"
