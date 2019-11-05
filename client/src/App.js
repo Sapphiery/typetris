@@ -59,7 +59,6 @@ class App extends Component {
         newState.gameSpeed--;
       }
       if (gameState.gameStatus == 3) {
-        alert('game over');
         $(".restart").css("display", "block");
       }
       this.setState(newState);
@@ -167,6 +166,12 @@ class App extends Component {
         }
       } else {
         this.setState({typeTime: false, currentWord: "", correctLetters: 0, gameSpeed: this.state.gameSpeed - 100});
+<<<<<<< HEAD
+=======
+        console.log("INCORRECT!")
+        $(".backDrop").addClass("incorrect");
+        setTimeout(function(){ $(".backDrop").removeClass("incorrect"); }, 300);
+>>>>>>> ad4dd4351977a828a0715c002906b02668c984e2
       }
     }
   }
@@ -199,6 +204,7 @@ class App extends Component {
         <Score 
           currentScore={this.state.currentScore}
           highScore={this.state.highScore}
+          // leaderboard={}
           />
         <GameContainer 
           row = {this.state.gameArea}
