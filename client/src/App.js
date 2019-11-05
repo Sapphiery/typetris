@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from 'react-dom';
 import logo from "./logo.svg";
 import "./App.css";
 import Leaderboard from './components/Leaderboard';
@@ -9,7 +10,7 @@ import GameContainer from './components/GameContainer';
 import PreviewBlocks from './components/PreviewBlocks';
 import Score from './components/Score';
 import tetris from 'tetris-engine';
-
+import GoogleLogin from 'react-google-login';
 // import randomWord from 'random-word';
 
 import "./assets/css/general.css";
@@ -20,6 +21,7 @@ const Engine = tetris.Engine;
 console.log('Engine: ', Engine);
 
 // const wordList = ['captain', 'never', 'zombie', 'fever', 'cat', 'possum']
+
 
 class App extends Component {
   state = {
