@@ -15,7 +15,7 @@ import "./assets/js/script.js";
 import $ from "jquery";
 
 const Engine = tetris.Engine;
-console.log('Engine: ', Engine);
+// console.log('Engine: ', Engine);
 
 // const wordList = ['captain', 'never', 'zombie', 'fever', 'cat', 'possum']
 
@@ -165,7 +165,6 @@ class App extends Component {
         }
       } else {
         this.setState({typeTime: false, currentWord: "", correctLetters: 0, gameSpeed: this.state.gameSpeed - 100});
-        console.log("INCORRECT!")
         $(".backDrop").addClass("incorrect");
         setTimeout(function() { 
           $(".backDrop").removeClass("incorrect"); 

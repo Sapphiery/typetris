@@ -40,8 +40,8 @@ button:focus {
 }
 
 .shape.TShape {
-    background-color: green;
-    box-shadow: 0 0 6px green;
+    background-color: rgb(0, 170, 0);
+    box-shadow: 0 0 6px rgb(0, 170, 0);
     border: 1px solid #3030303b;
 }
 
@@ -52,21 +52,21 @@ button:focus {
 }
 
 .shape.IShape {
-    background-color: mediumblue;
-    box-shadow: 0 0 6px mediumblue;
+    background-color: rgb(135, 70, 255);
+    box-shadow: 0 0 6px rgb(135, 70, 255);
     border: 1px solid #3030303b;
 }
 
 .shape.SShape {
-    background-color: saddlebrown;
-    box-shadow: 0 0 6px saddlebrown;
+    background-color: rgb(255, 230, 0);
+    box-shadow: 0 0 6px rgb(255, 230, 0);
     border: 1px solid #3030303b;
 }
 
 .shape.ZShape {
-    background-color: teal;
-    box-shadow: 0 0 6px teal;
-    border: 1px solid teal;
+    background-color: rgb(0, 255, 255);
+    box-shadow: 0 0 6px rgb(0, 255, 255);
+    border: 1px solid rgb(0, 255, 255);
 }
 
 .heap.LShape {
@@ -116,7 +116,8 @@ button:focus {
 .heap {
     background-color: darkkhaki;
     box-shadow: 0 0 6px darkkhaki;
-    animation: 
+    animation: pulse3 500ms;
+    animation-iteration-count: 1;
 }
 
 .leftEdge {
@@ -173,44 +174,6 @@ button:focus {
     box-shadow: 0 0 0 0px darkkhaki;
   }
   100% {
-    box-shadow: 0 0 10px 10px darkkhaki;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0);
   }
-}
-
-@keyframes forimg {
-    0% {
-        filter: saturate(50%);
-    }
-    20% {
-        filter: saturate(70%);
-    }
-    40% {
-        filter: saturate(100%);
-    }
-    60% {
-        filter: saturate(150%);
-    }
-    80% {
-        filter: saturate(100%);
-    }
-    100% {
-        filter: saturate(70%);
-    }
-}
-
-/* rgb gradient */
-
-@keyframes slide {
-    0% {
-      background-position-x: 0%;
-    }
-    100% {
-      background-position-x: 600vw;
-    }
-  }
-
-.rgbGradient {
-    background: repeating-linear-gradient(-45deg,red 0%, yellow 7.14%, rgb(0,255,0) 14.28%, rgb(0,255,255) 21.42%, cyan 28.56%, blue 35.7%, magenta 42.84%, red 50%);
-	background-size:600vw 600vw;
-	/* -webkit-animation:'slide' 10s infinite linear forwards; */
 }
