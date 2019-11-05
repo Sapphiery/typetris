@@ -12,7 +12,6 @@ const Navbar = props => (
             </li>
             <li>
                 <GoogleLogin />
-                
             </li>
         </ul>
     </div>
