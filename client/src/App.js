@@ -200,6 +200,7 @@ class App extends Component {
         <Score 
           currentScore={this.state.currentScore}
           highScore={this.state.highScore}
+          // leaderboard={}
           />
         <GameContainer 
           row = {this.state.gameArea}

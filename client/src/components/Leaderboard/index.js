@@ -7,7 +7,7 @@ const Leaderboard = props => (
         <h1 className="leaderboardFullTitle">Leaderboard</h1>
         <ol>
             {/* {props.leaderboard.map((scores, key) => (
-                <li className="listitem" key={key}>{scores}</li>
+                <li className="listitem" key={key}>{scores.name}: {scores.score}</li>
             ))} */}
 
             <li>Name 1</li>
