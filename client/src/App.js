@@ -52,7 +52,7 @@ class App extends Component {
         currentShapeName: gameState.shapeName
       };
   
-      if(this.state.currentShapeName !== gameState.shapeName) {
+      if(this.state.currentShapeName !== gameState.shapeName && gameState.gameStatus === 1) {
         this.handleTypeTime();
         newState.gameSpeed--;
       }
