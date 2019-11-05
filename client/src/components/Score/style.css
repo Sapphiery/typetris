@@ -4,6 +4,7 @@
 
 .Score, .Leaderboard {
     border: 1px solid rgb(255, 0, 157);
+    min-width: 254px;
     margin: 10px;
     padding: 10px;
     color: #ffffff;
