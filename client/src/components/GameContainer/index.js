@@ -26,7 +26,9 @@ function GameContainer (props) {
                 ))}
             </tbody>
         </table>
-        <Leaderboard />
+        <Leaderboard 
+            // leaderboard={}
+        />
     </div>
     );
 };

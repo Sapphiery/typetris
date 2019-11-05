@@ -10,6 +10,9 @@ const Score = props => (
         <div className="Leaderboard">
             <h3 className="leaderTitle">Leaderboard - Top 10</h3>
             <ol>
+                {/* {props.leaderboard.slice(0,10).map((scores, key) => (
+                    <li className="listitem" key={key}>{scores.name}: {scores.score}</li>
+                ))} */}
                 <li>Name 1</li>
                 <li>Name 2</li>
                 <li>Name 3</li>
