@@ -35,11 +35,12 @@ class App extends Component {
     correctLetters: 0,
     currentShapeName: ""
   }
-  
-  componentDidMount() {
+
+  makeNewGame =() => {
+
     let areaHeight = 20;
     let areaWidth = 25;
-
+  
     let renderFunct = gameState => {
       let score = this.state.currentScore;
       let newScore = gameState.statistic.countLinesReduced;
@@ -49,9 +50,10 @@ class App extends Component {
         nextShape: gameState.nextShape,
         gameStatus: gameState.gameStatus,
         gameSpeed: newScore > score ? this.state.gameSpeed - ((newScore - score) * 10) : this.state.gameSpeed,
+        highScore: newScore > this.state.highScore ? newScore : this.state.highScore,
         currentShapeName: gameState.shapeName
       };
-
+  
       if(this.state.currentShapeName !== gameState.shapeName) {
         this.handleTypeTime();
         newState.gameSpeed--;
@@ -62,16 +64,21 @@ class App extends Component {
       }
       this.setState(newState);
     }
-
+  
     const game = new Engine(
       areaHeight,
       areaWidth,
       renderFunct
     );
 
+    return game;
+  };
+  
+  componentDidMount() {
+
     // console.log('game is: ', game);
 
-    this.setState({ game: game }, () => {
+    this.setState({ game: this.makeNewGame() }, () => {
       // console.log("State changed.")
       // console.log(this.state.game)
     });
@@ -89,8 +96,8 @@ class App extends Component {
 
     let tick = () => {
       this.state.game.moveDown();
-      console.log("tick " + this.state.gameSpeed);
-      setTimeout(tick, this.state.gameSpeed > 0 ? this.state.gameSpeed : 1);
+      // console.log("tick " + this.state.gameSpeed);
+      if (this.state.gameStatus !== 3) setTimeout(tick, this.state.gameSpeed > 0 ? this.state.gameSpeed : 1);
     };
 
     setTimeout(tick, this.state.gameSpeed);
@@ -172,6 +179,11 @@ class App extends Component {
     });
   }
 
+  handleRestart = () => {
+    this.setState({game: this.makeNewGame(), currentScore: 0, gameSpeed: 1000, gameStatus: 0});
+    $(".start").css("display", "block");
+  };
+
   // randomWord() {
   //   let index = Math.floor(Math.random() * wordList.length);
 
@@ -191,7 +203,7 @@ class App extends Component {
         <GameContainer 
           row = {this.state.gameArea}
           start = {this.handleGameStart}
-          restart = {this.restart}
+          restart = {this.handleRestart}
           currentword = {this.state.currentWord}
           correctletters = {this.state.correctLetters}
         >

@@ -5,13 +5,14 @@ import "./style.css";
 function GameContainer (props) { 
 
     const row = props.row
+    const wordPosition = props.correctletters
 
     return (
     <div className="GameContainer">
         <button className="start" onClick={props.start}>START</button>
-        <button className="start restart" style={{display:"none"}} onClick={props.restart}>PLAY AGAIN</button>
+        <button className="restart" style={{display:"none"}} onClick={props.restart}>PLAY AGAIN?</button>
         <div className="wordContainer">
-            <h1 className="currentWord">{props.currentword}</h1>
+        <h1 className="currentWord"><span className={wordPosition ? "highlight" : ""}>{props.currentword.substring(0, wordPosition) || ""}</span>{props.currentword.substring(wordPosition) || ""}</h1>
             {console.log("Correct Letters: ", props.correctletters)}
         </div>
         <table className="game-table">
