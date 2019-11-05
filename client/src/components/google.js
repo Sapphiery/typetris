@@ -24,10 +24,10 @@
 //    }).then(function (result) {
 //    console.log(result);
 //    });
-
+                       
 //    console.log(ids + " this works");
 //    console.log(name + " this also works");
-
+                   
 //    }
 
 //    function signOut() {
@@ -40,9 +40,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import GoogleLogin from 'react-google-login';
-import {
-  GoogleLogout
-} from 'react-google-login';
+// import { GoogleLogout } from 'react-google-login';
 
 
 const responseGoogle = (response) => {
@@ -50,33 +48,22 @@ const responseGoogle = (response) => {
 }
 
 const Google = () => {
-  return ( <
-    GoogleLogin clientId = "937809397647-pigoe4b4pg4e2bv84mnrvf8u0agh5hqd.apps.googleusercontent.com"
-    buttonText = "Login"
-    onSuccess = {
-      responseGoogle
-    }
-    onFailure = {
-      responseGoogle
-    }
-    cookiePolicy = {
-      'single_host_origin'
-    }
-    />, 
-    <GoogleLogout clientId = "658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com" buttonText = "Logout" onLogoutSuccess = {logout} >
-    <
-    /GoogleLogout>
+  return (
+    <GoogleLogin
+      clientId="937809397647-pigoe4b4pg4e2bv84mnrvf8u0agh5hqd.apps.googleusercontent.com"
+      buttonText="Login"
+      onSuccess={responseGoogle}
+      onFailure={responseGoogle}
+      cookiePolicy={'single_host_origin'}
+    />
   );
 };
 
-<
-GoogleLogout
-clientId = "658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-buttonText = "Logout"
-onLogoutSuccess = {
-    logout
-  } >
-  <
-  /GoogleLogout>
+{/* <GoogleLogout
+  clientId="937809397647-pigoe4b4pg4e2bv84mnrvf8u0agh5hqd.apps.googleusercontent.com"
+  buttonText="Logout"
+  onLogoutSuccess={logout}
+>
+</GoogleLogout> */}
 
 export default Google;
