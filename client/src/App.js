@@ -182,13 +182,11 @@ class App extends Component {
         }
       } else {
         this.setState({typeTime: false, currentWord: "", correctLetters: 0, gameSpeed: this.state.gameSpeed - 100});
-<<<<<<< HEAD
-=======
+
         $(".backDrop").addClass("incorrect");
         setTimeout(function() { 
           $(".backDrop").removeClass("incorrect"); 
         }, 300);
->>>>>>> 06b13c7c6dc959748b8e852d8c379a1c1b1dbe16
       }
     }
   }
