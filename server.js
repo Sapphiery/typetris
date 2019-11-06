@@ -19,6 +19,7 @@ app.get("/api/randomword", (req,res) => {
   res.json({word: RandomWord()});
 });
 
+<<<<<<< HEAD
 app.post("/signin", (req, res) => {
   // add logic to store user details in DB.
   // req.body.googleId, req.body.highScore, etc...
@@ -43,6 +44,8 @@ app.post("/updatehighscore/:id", (req, res) => {
 });
 
 
+=======
+>>>>>>> 06b13c7c6dc959748b8e852d8c379a1c1b1dbe16
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {

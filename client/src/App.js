@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import Leaderboard from './components/Leaderboard';
 import Wrapper from './components/Wrapper';
 import Navbar from './components/Navbar';
 import Backdrop from './components/Backdrop';
@@ -16,7 +15,7 @@ import "./assets/js/script.js";
 import $ from "jquery";
 
 const Engine = tetris.Engine;
-console.log('Engine: ', Engine);
+// console.log('Engine: ', Engine);
 
 // const wordList = ['captain', 'never', 'zombie', 'fever', 'cat', 'possum']
 
@@ -70,7 +69,7 @@ class App extends Component {
         currentShapeName: gameState.shapeName
       };
   
-      if(this.state.currentShapeName !== gameState.shapeName) {
+      if(this.state.currentShapeName !== gameState.shapeName && gameState.gameStatus === 1) {
         this.handleTypeTime();
         newState.gameSpeed--;
       }
@@ -183,6 +182,13 @@ class App extends Component {
         }
       } else {
         this.setState({typeTime: false, currentWord: "", correctLetters: 0, gameSpeed: this.state.gameSpeed - 100});
+<<<<<<< HEAD
+=======
+        $(".backDrop").addClass("incorrect");
+        setTimeout(function() { 
+          $(".backDrop").removeClass("incorrect"); 
+        }, 300);
+>>>>>>> 06b13c7c6dc959748b8e852d8c379a1c1b1dbe16
       }
     }
   }

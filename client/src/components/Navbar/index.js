@@ -11,8 +11,12 @@ const Navbar = props => (
                 <h1 className="navTitle">Typetris</h1>
             </li>
             <li>
+<<<<<<< HEAD
                 <GoogleLogin doLogin={props.doLogin} />
                 
+=======
+                <GoogleLogin />
+>>>>>>> 06b13c7c6dc959748b8e852d8c379a1c1b1dbe16
             </li>
         </ul>
     </div>

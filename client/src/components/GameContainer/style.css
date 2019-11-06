@@ -24,6 +24,12 @@
     padding-left: 10px;
 }
 
+.highlight {
+    color: rgba(51, 255, 0, 0.537);
+    border-radius: 10px;
+    text-shadow: 0 0 3px rgb(51, 255, 0);
+}
+
 table {
     border-collapse: inherit;
 }
