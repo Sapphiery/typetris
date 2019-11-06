@@ -74,7 +74,6 @@ class App extends Component {
         newState.gameSpeed--;
       }
       if (gameState.gameStatus == 3) {
-        alert('game over');
         $(".restart").css("display", "block");
       }
       this.setState(newState);
