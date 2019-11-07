@@ -32,12 +32,20 @@ class App extends Component {
     typeTime: false,
     currentWord: "",
     correctLetters: 0,
-    currentShapeName: ""
+    currentShapeName: "",
+    name: "",
+    googleId: ""
   }
 
   doLogin = (name, googleId) => {
     const post = {name: name, googleId: googleId, highScore: this.state.highScore};
     console.log('in doLogin fn: ', post);
+    let newState = {
+      name: post.name,
+      googleId: post.googleId,
+      highScore: post.highScore
+    }
+    this.setState(newState);
     fetch('/signin', {
       method: "POST",
       headers: {
@@ -50,6 +58,12 @@ class App extends Component {
       console.log(result);
      });
   }
+
+
+
+
+
+
 
   makeNewGame =() => {
 
@@ -75,6 +89,7 @@ class App extends Component {
       }
       if (gameState.gameStatus == 3) {
         $(".restart").css("display", "block");
+        //
       }
       this.setState(newState);
     }

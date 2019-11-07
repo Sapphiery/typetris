@@ -9,8 +9,8 @@ var mysql = require("mysql");
 var connection = mysql.createConnection({
   port: 3306,
   host: "127.0.0.1",
-  user: "tetrisuser",
-  password: "tetris",
+  user: "test_user",
+  password: "password",
   database: "tetris"
 });
 
