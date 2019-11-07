@@ -4,15 +4,23 @@
 
 // Require mysql
 var mysql = require("mysql");
+var 
 
 // Set up our connection information
-var connection = mysql.createConnection({
-  port: 3306,
-  host: "127.0.0.1",
-  user: "test_user",
-  password: "password",
-  database: "tetris"
-});
+var connection;
+
+if (process.env.NODE_ENV === "production") {
+  const connectionString = process.env.JAWSDB_URL;
+  connection = mysql.createConnection(connectionString);
+} else {
+  connection = mysql.createConnection({
+    port: 3306,
+    host: "127.0.0.1",
+    user: "tetrisuser",
+    password: "tetris",
+    database: "tetris-test"
+  });
+}
 
 // Connect to the database
 connection.connect(function(err) {
