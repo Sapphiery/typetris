@@ -54,7 +54,7 @@ const Google = (props) => {
 
   return (
     <GoogleLogin
-      clientId="937809397647-pigoe4b4pg4e2bv84mnrvf8u0agh5hqd.apps.googleusercontent.com"
+      clientId="937809397647-1pcdbb8tsc0fmevinln3gpilb50q2gfu.apps.googleusercontent.com"
       buttonText="Login"
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
@@ -63,11 +63,5 @@ const Google = (props) => {
   );
 };
 
-{/* <GoogleLogout
-  clientId="937809397647-pigoe4b4pg4e2bv84mnrvf8u0agh5hqd.apps.googleusercontent.com"
-  buttonText="Logout"
-  onLogoutSuccess={logout}
->
-</GoogleLogout> */}
 
 export default Google;
