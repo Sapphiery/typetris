@@ -4,13 +4,11 @@ import "./style.css";
 function PreviewBlocks (props) {
 
     const next = props.NextBlock;
-    console.log("Body", next.body)
 
     return (
     <div className="right">
         <div className="PreviewBlocks">
             <h3 className="PBtitle">Next Block:</h3>
-            {console.log("next: ", next)}
             <table className="PreviewContainer">
                 <tbody>
                     {next.body ? next.body.map((cell, rowkey) => (

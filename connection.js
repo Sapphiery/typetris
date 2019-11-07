@@ -4,7 +4,6 @@
 
 // Require mysql
 var mysql = require("mysql");
-var 
 
 // Set up our connection information
 var connection;
