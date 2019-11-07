@@ -73,8 +73,7 @@ class App extends Component {
         this.handleTypeTime();
         newState.gameSpeed--;
       }
-      if (gameState.gameStatus == 3) {
-        alert('game over');
+      if (gameState.gameStatus === 3) {
         $(".restart").css("display", "block");
       }
       this.setState(newState);
