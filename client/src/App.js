@@ -35,6 +35,22 @@ class App extends Component {
     currentShapeName: ""
   }
 
+  doLogin = (name, googleId) => {
+    const post = {name: name, googleId: googleId, highScore: this.state.highScore};
+    console.log('in doLogin fn: ', post);
+    fetch('/signin', {
+      method: "POST",
+      headers: {
+      'Content-Type': 'application/json'
+      },
+     body: JSON.stringify(post)
+     }).then(function(res){
+      return res.json();
+     }).then(function (result) {
+      console.log(result);
+     });
+  }
+
   makeNewGame =() => {
 
     let areaHeight = 20;
@@ -165,6 +181,7 @@ class App extends Component {
         }
       } else {
         this.setState({typeTime: false, currentWord: "", correctLetters: 0, gameSpeed: this.state.gameSpeed - 100});
+
         $(".backDrop").addClass("incorrect");
         setTimeout(function() { 
           $(".backDrop").removeClass("incorrect"); 
@@ -195,13 +212,12 @@ class App extends Component {
   render() {
     return (
       <Wrapper >
-        <Navbar 
+        <Navbar doLogin={this.doLogin}
         />
         <Backdrop />
         <Score 
           currentScore={this.state.currentScore}
           highScore={this.state.highScore}
-          // leaderboard={}
           />
         <GameContainer 
           row = {this.state.gameArea}
