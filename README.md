@@ -1,29 +1,18 @@
-# Create React Express App
+# Typetris
 
-## About This Boilerplate
+##### [Check out the live version!](https://typetris.herokuapp.com/ "Typing with Tetris!")
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+Play your favorite game while improving your WPM speed!
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+<img width = 950 src = "https://github.com/Sapphiery/typetris/blob/richard/client/public/Preview/title.PNG?raw=true" style="box-shadow: 3px 6px 6px #0000008c;">
 
-## Starting the app locally
+## Quick Instructions (also listed in the App):
+* Control blocks with arrow keys
+* Controls are locked for each block until you type the word shown
+* Don't mistype or the game will speed up!
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+<img width = 300 src = "https://github.com/Sapphiery/typetris/blob/richard/client/public/Preview/gameplay.PNG?raw=true" style="box-shadow: 3px 6px 6px #0000008c;">
 
-```
-npm install
-```
+## Next block display:
 
-This should install node modules within the server and the client folder.
-
-After both installations complete, run the following command in your terminal:
-
-```
-npm start
-```
-
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+<img width = 300 src = "https://github.com/Sapphiery/typetris/blob/richard/client/public/Preview/nextblock.PNG?raw=true" style="box-shadow: 3px 6px 6px #0000008c;">
