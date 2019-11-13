@@ -48,6 +48,14 @@ app.post("/updatehighscore/:id", (req, res) => {
   });
 });
 
+app.get("/leaderboard", (req, res) => {
+  connection.query("SELECT * FROM users ORDER BY highscore DESC", function (error, results) {
+    if (error) throw error;
+    console.log("leaderboard", results)
+    res.json(results)
+  });
+})
+
 
 // Send every other request to the React app
 // Define any API routes before this runs

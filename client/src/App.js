@@ -34,7 +34,8 @@ class App extends Component {
     correctLetters: 0,
     currentShapeName: "",
     name: "",
-    googleId: ""
+    googleId: "",
+    leaderboard: []
   }
 
   doLogin = (name, googleId) => {
@@ -59,11 +60,7 @@ class App extends Component {
      });
   }
 
-
-
-
-
-
+  
 
   makeNewGame =() => {
 
@@ -113,7 +110,15 @@ class App extends Component {
     });
     // console.log('State: ', this.state);
 
+    fetch('/leaderboard')
+    .then(response => response.json())
+    .then(leaderboard => (this.setState( {leaderboard }, () => {
+      console.log('Leaderboard', this.state.leaderboard)
+    })));
+
     document.addEventListener("keydown", this.handleKeyPress);
+
+    
   }
 
   handleGameStart = () => {
@@ -230,9 +235,10 @@ class App extends Component {
         <Navbar doLogin={this.doLogin}
         />
         <Backdrop />
-        <Score 
+        <Score
           currentScore={this.state.currentScore}
           highScore={this.state.highScore}
+          leaderboard={this.state.leaderboard}
           />
         <GameContainer 
           row = {this.state.gameArea}
@@ -240,6 +246,7 @@ class App extends Component {
           restart = {this.handleRestart}
           currentword = {this.state.currentWord}
           correctletters = {this.state.correctLetters}
+          leaderboard= {this.state.leaderboard}
         >
         </GameContainer>
         <PreviewBlocks 
