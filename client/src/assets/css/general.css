@@ -152,6 +152,16 @@ button:focus {
 	-webkit-animation: rgb-font 1s infinite;
 }
 
+.logout {
+    display: inline-flex;
+
+}
+
+#userName {
+    margin: auto;
+    margin-right: 15%;
+}
+
 
 @keyframes pulse
 {
