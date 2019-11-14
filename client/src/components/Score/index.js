@@ -3,7 +3,7 @@ import "./style.css";
 
 function Score (props) {
 
-    {console.log('Score here', props.leaderboard)}
+    // {console.log('Score here', props.leaderboard)}
 
     return(
 

@@ -41,10 +41,11 @@ app.post("/signin", (req, res) => {
 });
 
 app.post("/updatehighscore/:id", (req, res) => {
-  connection.query('INSERT INTO users (name, googleid, highscore) VALUES (?,?,?)', [req.body.name, req.body.googleId, req.body.highScore], function (err, result) {
+  // connection.query('INSERT INTO users (name, googleid, highscore) VALUES (?,?,?)', [req.body.name, req.body.googleId, req.body.highScore], function (err, result) {
+    connection.query("UPDATE users SET highscore=? WHERE googleid=?", [req.body.highScore, req.body.googleId], function (err, result) {
     if (err) throw err;
-    console.log('Successfully saved id and name to db.', result);
-    res.json({success: true, msg: 'User details saved to DB'});
+    console.log('Successfully updated user score.', result);
+    res.json({success: true, msg: 'User details saved to DB', result});
   });
 });
 
