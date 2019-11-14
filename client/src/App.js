@@ -41,7 +41,7 @@ class App extends Component {
 
   doLogin = (name, googleId) => {
     const post = {name: name, googleId: googleId, highScore: this.state.highScore};
-    console.log('in doLogin fn: ', post);
+    // console.log('in doLogin fn: ', post);
     let newState = {
       name: post.name,
       googleId: post.googleId,
@@ -49,7 +49,7 @@ class App extends Component {
     }
     this.setState(newState);
     this.setState({ isLoggedIn: true })
-    console.log("LoggedIn should be true", this.state.isLoggedIn)
+    // console.log("LoggedIn should be true", this.state.isLoggedIn)
     fetch('/signin', {
       method: "POST",
       headers: {
@@ -59,7 +59,7 @@ class App extends Component {
      }).then(function(res){
       return res.json();
      }).then(function (result) {
-      console.log(result);
+      // console.log(result);
      });
   }
   
@@ -74,14 +74,14 @@ class App extends Component {
     }).then(function(res){
       return res.json();
     }).then(function(result){
-      console.log("Saved your score", result)
+      // console.log("Saved your score", result)
     })
   }
 
   logout = () => {
-    console.log("Logout")
+    // console.log("Logout")
     const auth2 = window.gapi.auth2.getAuthInstance()
-    console.log("auth", auth2)
+    // console.log("auth", auth2)
     if (auth2 != null) {
         auth2.signOut().then(
         auth2.disconnect().then(console.log("Logged out success!"))
@@ -147,10 +147,10 @@ class App extends Component {
     })));
 
     document.addEventListener("keydown", this.handleKeyPress);
-    console.log(this.state.name)
+    console.log("Hello, ", this.state.name)
     if (this.state.name == null) {
       this.setState({ isLoggedIn: false })
-      console.log("Login status should be false here", this.state.isLoggedIn)
+      // console.log("Login status should be false here", this.state.isLoggedIn)
     }
   }
 
