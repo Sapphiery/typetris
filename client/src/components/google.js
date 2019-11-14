@@ -38,7 +38,6 @@
 //      }
 //   module.exports = google;
 import React from 'react';
-import ReactDOM from 'react-dom';
 import GoogleLogin from 'react-google-login';
 // import { GoogleLogout } from 'react-google-login';
 

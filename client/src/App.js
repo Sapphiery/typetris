@@ -7,7 +7,6 @@ import GameContainer from './components/GameContainer';
 import PreviewBlocks from './components/PreviewBlocks';
 import Score from './components/Score';
 import tetris from 'tetris-engine';
-import GoogleLogin from 'react-google-login';
 // import randomWord from 'random-word';
 
 import "./assets/css/general.css";

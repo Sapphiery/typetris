@@ -149,7 +149,7 @@ button:focus {
 }
 
 .listitem:first-child {
-	-webkit-animation: rgb-font 1s infinite;
+	-webkit-animation: rgb-font 0.5s infinite;
 }
 
 .logout {
@@ -233,6 +233,9 @@ button:focus {
     }
     80% {
         color: #e100ff;
+    }
+    90% {
+        color: #ff006a;
     }
     100% {
         color: #ff0055;
