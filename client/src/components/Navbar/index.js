@@ -18,7 +18,8 @@ const Navbar = (props) => {
                     <div className="logout">
                         <h6 id="userName">Welcome, {props.name}!</h6>
                         <GoogleLogout
-                            clientId="937809397647-1pcdbb8tsc0fmevinln3gpilb50q2gfu.apps.googleusercontent.com"
+                            clientId="585358703458-e2orivq4228336j1a3abknnlgrh88355.apps.googleusercontent.com"
+                            // clientId="937809397647-1pcdbb8tsc0fmevinln3gpilb50q2gfu.apps.googleusercontent.com"
                             // clientId="937809397647-pigoe4b4pg4e2bv84mnrvf8u0agh5hqd.apps.googleusercontent.com"
                             buttonText="Logout"
                             onLogoutSuccess={props.logout}
