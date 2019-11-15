@@ -38,7 +38,6 @@
 //      }
 //   module.exports = google;
 import React from 'react';
-import ReactDOM from 'react-dom';
 import GoogleLogin from 'react-google-login';
 // import { GoogleLogout } from 'react-google-login';
 
@@ -54,7 +53,9 @@ const Google = (props) => {
 
   return (
     <GoogleLogin
-      clientId="937809397647-1pcdbb8tsc0fmevinln3gpilb50q2gfu.apps.googleusercontent.com"
+      // Client ID for Heroku
+      clientId="585358703458-e2orivq4228336j1a3abknnlgrh88355.apps.googleusercontent.com"
+      // clientId="937809397647-1pcdbb8tsc0fmevinln3gpilb50q2gfu.apps.googleusercontent.com"
       // clientId="937809397647-pigoe4b4pg4e2bv84mnrvf8u0agh5hqd.apps.googleusercontent.com"
       buttonText="Login"
       className="googleButton login"

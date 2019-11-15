@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "production") {
     host: "127.0.0.1",
     user: "tetrisuser",
     password: "tetris",
-    database: "tetris-test"
+    database: "tetris"
   });
 }
 

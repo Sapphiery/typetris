@@ -7,7 +7,6 @@ import GameContainer from './components/GameContainer';
 import PreviewBlocks from './components/PreviewBlocks';
 import Score from './components/Score';
 import tetris from 'tetris-engine';
-import GoogleLogin from 'react-google-login';
 // import randomWord from 'random-word';
 
 import "./assets/css/general.css";
@@ -33,19 +32,23 @@ class App extends Component {
     currentWord: "",
     correctLetters: 0,
     currentShapeName: "",
-    name: "",
-    googleId: ""
+    name: null,
+    googleId: "",
+    isLoggedIn: false,
+    leaderboard: []
   }
 
   doLogin = (name, googleId) => {
     const post = {name: name, googleId: googleId, highScore: this.state.highScore};
-    console.log('in doLogin fn: ', post);
+    // console.log('in doLogin fn: ', post);
     let newState = {
       name: post.name,
       googleId: post.googleId,
       highScore: post.highScore
     }
     this.setState(newState);
+    this.setState({ isLoggedIn: true })
+    // console.log("LoggedIn should be true", this.state.isLoggedIn)
     fetch('/signin', {
       method: "POST",
       headers: {
@@ -55,15 +58,38 @@ class App extends Component {
      }).then(function(res){
       return res.json();
      }).then(function (result) {
-      console.log(result);
+      // console.log(result);
      });
   }
+  
+  saveScore = (googleId, highScore) => {
+    const post= {highScore: this.state.highScore, googleId: this.state.googleId}
+    fetch('/updatehighscore/' + googleId, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(post)
+    }).then(function(res){
+      return res.json();
+    }).then(function(result){
+      // console.log("Saved your score", result)
+    })
+  }
 
-
-
-
-
-
+  logout = () => {
+    // console.log("Logout")
+    const auth2 = window.gapi.auth2.getAuthInstance()
+    // console.log("auth", auth2)
+    if (auth2 != null) {
+        auth2.signOut().then(
+        auth2.disconnect().then(console.log("Logged out success!"))
+        )
+        this.setState({isLoggedIn: false})
+    } else {
+    console.log("failed to logout.")
+    }
+  }
 
   makeNewGame =() => {
 
@@ -89,7 +115,7 @@ class App extends Component {
       }
       if (gameState.gameStatus === 3) {
         $(".restart").css("display", "block");
-        //
+        this.saveScore();
       }
       this.setState(newState);
     }
@@ -113,7 +139,18 @@ class App extends Component {
     });
     // console.log('State: ', this.state);
 
+    fetch('/leaderboard')
+    .then(response => response.json())
+    .then(leaderboard => (this.setState( {leaderboard }, () => {
+      // console.log('Leaderboard', this.state.leaderboard)
+    })));
+
     document.addEventListener("keydown", this.handleKeyPress);
+    console.log("Hello, ", this.state.name)
+    if (this.state.name == null) {
+      this.setState({ isLoggedIn: false })
+      // console.log("Login status should be false here", this.state.isLoggedIn)
+    }
   }
 
   handleGameStart = () => {
@@ -227,12 +264,17 @@ class App extends Component {
   render() {
     return (
       <Wrapper >
-        <Navbar doLogin={this.doLogin}
+        <Navbar 
+          doLogin={this.doLogin}
+          logout={this.logout}
+          isLoggedIn={this.state.isLoggedIn}
+          name={this.state.name}
         />
         <Backdrop />
-        <Score 
+        <Score
           currentScore={this.state.currentScore}
           highScore={this.state.highScore}
+          leaderboard={this.state.leaderboard}
           />
         <GameContainer 
           row = {this.state.gameArea}
@@ -240,6 +282,7 @@ class App extends Component {
           restart = {this.handleRestart}
           currentword = {this.state.currentWord}
           correctletters = {this.state.correctLetters}
+          leaderboard= {this.state.leaderboard}
         >
         </GameContainer>
         <PreviewBlocks 
