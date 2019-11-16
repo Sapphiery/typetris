@@ -15,7 +15,7 @@ function Score (props) {
         <div className="Leaderboard">
             <h3 className="leaderTitle">Leaderboard - Top 10</h3>
             <ol>
-                {props.leaderboard.map((scores, key) => (
+                {props.leaderboard.slice(0, 10).map((scores, key) => (
                     <li className="listitem" key={key}>{scores.name}: {scores.highscore}</li>
                 ))}
             </ol>
